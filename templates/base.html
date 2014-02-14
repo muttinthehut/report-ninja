@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report Rendering Example</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" />
+        
+        <link rel="sytlesheet" rel="stylesheet" href="/static/css/basetemplate.css" />
+        
+        <style>
+            .navbar-inner {
+                background-color: rgb(244,244,244);
+                background-image: none;
+                background-repeat: no-repeat;
+                filter: none;
+                }
+        </style>
+        
+    </head>
+    <body>
+ 
+        <!-- jquery files from CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- D3 JS from CDN  -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.js"></script>
+ 
+       
+        <div class="navbar" id="navigation">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    
+                    <div id="logo" style="float:left">
+                        <img src="/static/images/MarketReportLogo.png" alt="Dataium" height="60" >    
+                    </div>
+                    <div id="mktrptlogog" style="float:right">
+                        <img src="/static/images/Dataium Logo-01.png" alt="Market Report" height = "60" >
+                    </div>
+                    
+                </div>
+                
+                <div class="container-fluid">
+                    <div id="client" style="float:left">
+                         <a class="brand" style="font-size:20px" href="#">&nbsp;&nbsp;&nbsp;&nbsp;Market Report for {% block clientname %} Dataium Client  (based on base.html) {% endblock %}</a>
+                    </div>
+                    
+                    <div id="city" style="float:right">
+                        <p>{% block city %}CITY HERE{% endblock %}</p>
+                    </div>
+                    
+                </div>
+                
+                    
+                  
+            </div>
+        </div>
+        
+        <!-- START CHART ROWS HERE -->
+        
+        <div class="row-fluid" id="chartrow1">
+            
+                
+                    
+                        
+                
+                            <div class="row">
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    
+                                        <div class="panel panel-default">
+                                    
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Your Top Model vs. Cross-Shopped Models in the DMA</h3>
+                                            </div>
+                                    
+                                                <div class="panel-body" id="shopchart">
+                                
+                                                    {% block graphcontentrow1 %}
+                                                            <p>cross shop Here</p>
+                                                    {% endblock %}
+                                                
+                                                </div>  <!-- end of panel-body -->
+                
+                                        </div>   <!-- panel-default  upper left (shops) -->
+
+                                </div>   <!-- end of first column -->
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                        
+                                        <div class = "panel panel-default">
+                            
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Model Momentum</h3>
+                                            </div>
+                            
+                                                <div class="panel-body" id="dmm">
+                              
+                                                    {% block graphcontentrow2 %}
+                                                        <p>dmm here</p>
+                                                    {% endblock %}
+  
+                                                </div>  <!-- end of panel body -->
+                                                
+                                        </div>  <!-- pandel-default upper right  -->
+                   
+                                </div>  <!-- end of second column -->
+        
+                        </div>   <!-- end of row -->
+
+        <div class="row-fluid" id = "chartrow2">
+            
+        </div>
+
+
+    </body>
+</html>

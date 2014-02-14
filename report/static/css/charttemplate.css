@@ -1,0 +1,46 @@
+            body { font: 12px Arial;}
+            svg {
+                font: 10px sans-serif;
+            }
+
+            path { 
+                stroke: steelblue;
+	            stroke-width: 2;
+	            fill: none;
+            }
+
+                .axis path,
+                .axis line {
+	            fill: none;
+	            stroke: grey;
+	            stroke-width: 1;
+	            shape-rendering: crispEdges;
+                }
+                
+                .x.axis path {
+                    fill:none;
+                    stroke: grey;
+                    shape-rendering: crispEdges;
+                }
+                
+                .line {
+                    fill: none;
+                    stroke-width: 1.5px;
+                }
+                
+            .navbar {
+                font: 18px Arial;}
+            
+            .chart rect {
+                fill: steelblue;
+            }
+            
+            .chart text {
+                fill: white;
+                font: 10px Arial;
+                text-anchor: end;
+            }
+            
+
+
+

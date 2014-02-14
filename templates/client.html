@@ -1,0 +1,101 @@
+
+
+{% extends 'market_report.html' %}
+
+{% block clientname %} 
+
+       {{client.clientname}}
+
+{% endblock %}
+
+
+
+{% block city %}
+    {{client.clientcity}}, {{client.clientstate}}
+{% endblock %}
+
+
+
+{% block clientsitename %}
+<a href="http://{{client.clientwebsite}}" style="text-decoration: none; color: #00a8e0;">{{client.clientwebsite}}</a>
+{% endblock %}
+
+{% block clientdma %}
+    {{client.clientdma}} DMA
+{% endblock %}
+
+{% block reportmonth %}
+    {{client.dataiumreportmonth}}
+{% endblock %}
+
+{% block crossshopimage %}
+    <td align="center"><img src="/static/charts/shops/{{client.clientshopimage}}" width="350" height="140"></td>
+{% endblock %}
+
+{% block dmmimage %}
+    <td align="center"><img src="/static/charts/dmm/{{client.clientdmmimage}}" width="202" height="140"></td>
+{% endblock %}
+
+{% block hitlist %}
+<td>
+    <table width="394" height="180" style="font-family:Arial;color:#e5e5e5;size:10px" >
+        <tr>
+            <th><font style="color:#818181;font-size:12px">Stock No.</font></th>
+            <th><font style="color:#818181;font-size:12px">Vehicle</font></th>
+            <th><font style="color:#818181;font-size:12px">Index</font></th>
+            <th><font style="color:#818181;font-size:12px">Last View</font></th>
+        </tr>
+        {% for h in hitlist %}
+            <tr style="background:{% cycle ' #efefef' '#ffffff' %}">
+                <td><font style="color:#000;font-size:12px">{{ h.stocknumber }}</font></td>
+                <td><font style="color:#000;font-size:12px">{{ h.vehicle }}</font></td>
+                <td><font style="color:#000;font-size:12px">{{ h.shopperindex }}</font></td>
+                <td><font style="color:#000;font-size:12px">{{ h.lastviewed }}</font></td>
+            </tr>
+       {% endfor %}
+       
+    </table>
+</td>
+{% endblock %}
+
+{% block hitlistcontent %}
+
+    <script type="text/javascript">
+    </script>
+    <script>
+        // we should be able to do our data massaging here
+        var hitlist = "{{ hitlist | escapejs }}";
+         // jpb, DEBUG ONLY
+         console.log(hitlist);
+         // jpb, END OF DEBUG
+    </script>
+
+{% endblock %}
+
+{% block graphcontentrow1 %}
+
+    <script type="text/javascript">
+    </script>
+    <script>
+        // we should be able to do our data massaging here
+        var shopdata = "{{ shops | escapejs }}";
+         // jpb, DEBUG ONLY
+         // console.log(shopdata);
+         // jpb, END OF DEBUG
+    </script>
+
+{% endblock %}
+
+{% block graphcontentrow2 %}
+
+    <script>
+        // we should be able to do our data massaging here
+        var dmmdata = "{{ dmm | escapejs }}";
+         // jpb, DEBUG ONLY
+         // console.log(dmmdata);
+         // jpb, END OF DEBUG
+    </script>
+    
+     <script src="/static/js/allcharts.js"></script>
+
+{% endblock %}

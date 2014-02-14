@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report Rendering Example</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="sytlesheet" rel="stylesheet" href="/static/css/charttemplate.css" />
+        
+        <style>
+            html {
+                min-width: 100%;
+                min-height: 100%;
+                width: 350px;
+                height: 140px;
+            }
+            
+            body {
+                width: 350px;
+                height: 140px;
+                
+            }
+
+            svg {
+                background-color: #E5E5E5;
+            }
+            
+            crosschart {
+                width: 350px;
+                height: 140px;
+            }
+
+        </style>
+        
+    </head>
+    <body bgcolor: "#E5E5E5">
+ 
+        <!-- jquery files from CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- D3 JS from CDN  -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.js"></script>
+ 
+
+        <!-- START CHART ROWS HERE -->
+       <div id="crosschart">
+             {% block graphcontentrow1 %}
+                       <p>cross shop Here</p>
+              {% endblock %}
+        </div>
+
+
+    </body>
+</html>

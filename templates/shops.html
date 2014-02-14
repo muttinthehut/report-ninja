@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block crossshops %} {{crossshops}} 
+
+            {% for row in crossshops %}
+            <li>{{ row.dataiumclientid }}<br/>
+            {{ row.clientmodel }}<br/>
+            {{ row.crossmodel }}</br>
+            {{ row.shops }}</li>
+            {% endfor %}
+ 
+
+{% endblock %}
+
+
+
+

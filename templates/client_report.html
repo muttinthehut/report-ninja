@@ -1,0 +1,53 @@
+
+
+{% extends 'base.html' %}
+
+{% block clientname %} 
+
+       {{client.clientname}}
+
+{% endblock %}
+
+
+
+{% block city %}
+    {{client.clientcity}}, {{client.clientstate}}
+{% endblock %}
+
+
+
+{% block clientsitename %}
+<a href="http://{{client.clientwebsite}}" style="text-decoration: none; color: #00a8e0;">{{client.clientwebsite}}</a>
+{% endblock %}
+
+{% block clientdma %}
+    {{client.clientdma}} DMA
+{% endblock %}
+
+{% block graphcontentrow1 %}
+
+    <script type="text/javascript">
+    </script>
+    <script>
+        // we should be able to do our data massaging here
+        var shopdata = "{{ shops | escapejs }}";
+         // jpb, DEBUG ONLY
+         // console.log(shopdata);
+         // jpb, END OF DEBUG
+    </script>
+
+{% endblock %}
+
+{% block graphcontentrow2 %}
+
+    <script>
+        // we should be able to do our data massaging here
+        var dmmdata = "{{ dmm | escapejs }}";
+         // jpb, DEBUG ONLY
+         // console.log(dmmdata);
+         // jpb, END OF DEBUG
+    </script>
+    
+     <script src="/static/js/allcharts.js"></script>
+
+{% endblock %}

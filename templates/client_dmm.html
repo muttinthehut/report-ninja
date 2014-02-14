@@ -1,0 +1,22 @@
+
+
+{% extends 'dmm.html' %}
+
+
+
+{% block graphcontentrow1 %}
+
+    <script>
+        // we should be able to do our data massaging here
+        var dmmdata = "{{ dmm | escapejs }}";
+         // jpb, DEBUG ONLY
+         // console.log(dmmdata);
+         // jpb, END OF DEBUG
+    </script>
+    
+     <script src="/static/js/dmmcharts.js"></script>
+
+{% endblock %}
+
+
+

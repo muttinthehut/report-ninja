@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hitlist Rendering Tool</title>
+        <!-- Latest compiled and minified CSS -->
+       
+        
+        <style>
+            html {
+                min-width: 100%;
+                min-height: 100%;
+                width: 202px;
+                height: 140px;
+            }
+            
+            body {
+                width: 202px;
+                height: 140px;
+                
+            }
+
+            svg {
+                background-color: #000000;
+            }
+            
+            dmmchart {
+                width: 202px;
+                height: 140px;
+            }
+            
+            .domain {
+                fill: none;
+                stroke: white;
+                stroke-width: 1;
+            }
+            
+            th {
+                font-size: 12px;
+                text-align: center;
+                
+            }
+            
+            td {
+                font-size: 12px;
+                text-align: center;
+            }
+            
+            
+            
+        </style>
+        
+    </head>
+    <body>
+ 
+        <!-- jquery files from CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- D3 JS from CDN  -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.js"></script>
+ 
+
+        <!-- START CHART ROWS HERE -->
+       <div id="hitlist">
+             {% block hitlist %}
+    <table width="394" height="180" style="font-family:Arial;color:#e5e5e5" >
+        <tr>
+            <th><font color="#000" size=">Stock No.</font></th>
+            <th><font color="#000">Vehicle</font></th>
+            <th><font color="#000">Index</font></th>
+            <th><font color="#000">Last View</font></th>
+        </tr>
+        {% for h in hitlist %}
+            <tr style="background:{% cycle ' #0a7ba1' '#4d4d4d' %}">
+                <td>{{ h.stocknumber }}</td>
+                <td>{{ h.vehicle }}</td>
+                <td>{{ h.shopperindex }}</td>
+                <td>{{ h.lastviewed }}</td>
+            </tr>
+       {% endfor %}
+       
+    </table>
+            
+            {% endblock %}
+        </div>
+        
+                
+
+    </body>
+</html>
