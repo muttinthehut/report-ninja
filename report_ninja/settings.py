@@ -10,6 +10,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+# EMAIL SETUP
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_HOST_USER = 'jburns@dataium.com'
+EMAIL_HOST_PASSWORD = 'BGPl1EiyBD6YNMpJNvrgKA'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'jburns@dataium.com'
+
 SETTINGS_DIR = os.path.dirname(__file__)
 
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
