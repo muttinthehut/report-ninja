@@ -23,6 +23,8 @@ SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
+REGISTRATION_PATH = os.path.join(TEMPLATE_PATH,'registration')
+
 
 STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 
@@ -86,6 +88,11 @@ STATIC_ROOT = ''
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
 
+# jpb, 2/24, added login url for restricting access
+LOGIN_URL='/login'
+
+
+
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -119,7 +126,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'report_ninja.urls'
@@ -132,6 +139,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
+    REGISTRATION_PATH,
 )
 
 INSTALLED_APPS = (

@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 
+
+
 # jpb, imported for report
 from report import views
 
@@ -18,26 +20,53 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
-    # jpb, added for report app
+    # jpb, added for report app home page - don't remove
     url(r'^$',views.index, name = 'index'),
-    # jpb, example template for report
-    url(r'^report/', views.report, name='report'),
-    url(r'^client_report/get/(?P<client_id>\d+)/$','report.views.client_report'),
-    # url(r'^client_crossshop/get/(?P<myid>\d+)/$','report.views.client_crossshop'),
-    # jpb, below is for testing model inheritance
-    url(r'^shops/get/(?P<myid>\d+)/$','report.views.shops'),
+
+
     
 ## jpb, these two views are working, don't remove.  They are used for creating the report.    
     url(r'^client_name/get/(?P<client_id>\d+)/$','report.views.client_name'),
     url(r'^client_sample/get/(?P<client_id>\d+)/$','report.views.client_sample'),
 
-## jpb, these view generate various charts.  Don't remove them
-   url(r'^client_crossshops/get/(?P<client_id>\d+)/$','report.views.client_crossshops'),
+
+## jpb, this view gnerate the cross shop chart for static use. Don't remove it.
+
+    url(r'^client_crossshops/get/(?P<client_id>\d+)/$','report.views.client_crossshops'),
 
 ## jpb, this view generates the dmm charts for static use.  Don't remove it.   
    url(r'^client_dmm/get/(?P<client_id>\d+)/$','report.views.client_dmm'),
    
    ## jpb, this view generates the hitlist table for static use.  Don't remove it.   
    url(r'^client_hitlist/get/(?P<client_id>\d+)/$','report.views.client_hitlist'),
+   
+## jpb, these URLs are for the user portal login and logout
+    # url(r'^login/$','django.contrib.auth.views.login'),
+    # url(r'^logout/$','report.views.logout_page'),
+    # url(r'^portal/','report.views.portal_page'),
+    # url(r'^auth_password_reset/$','django.contrib.auth.views.password_change'),
+    # url(r'^password_changed/$','django.contrib.auth.views.password_change_done'),
+    # jpb, 2/24 register page working 
+    url(r'^register/$','report.views.register',name='register'), 
+    # jpb, 2/24 added for login
+    url(r'^login/$','report.views.user_login',name='login'),
+    # jpb, 2/24 added for logout
+    url(r'^logout/$','report.views.user_logout',name='logout'), 
+    
+
+## jpb, this URL is for user dashboard
+    url(r'^dashboard/$','report.views.dashboard',name='dashboard'),
+
+## jpb, these are for sending email reports
+    url(r'^sendmktrpt/(?P<client_id>\d+)/$','report.views.sendmktrpt',name='sendmktrpt'),
+
+## NOT USED BELOW
+       # jpb, example template for report.  Old and can be removed.
+        url(r'^report/', views.report, name='report'),
+
+    # sample only, not used 
+    url(r'^client_report/get/(?P<client_id>\d+)/$','report.views.client_report'),
+
+
 
 )

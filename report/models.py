@@ -1,7 +1,11 @@
 from django.db import models
 from django.core import serializers
+# jpb,2/24 imported for User auth and login
+from django.contrib.auth.models import User
 
 # Create your models here.
+
+
 
 # The parent client model
 
@@ -10,6 +14,7 @@ class Client(models.Model):
     clientemail = models.EmailField(max_length=50)
     dataiumclientid = models.IntegerField(default=0)
     dataiumreportmonth = models.CharField(max_length=50)
+    clienthasoptedout = models.CharField(max_length=3)
     clientdma = models.CharField(max_length=50)
     clientcity = models.CharField(max_length=50)
     clientstate = models.CharField(max_length=12)

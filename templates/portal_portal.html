@@ -1,0 +1,39 @@
+{% extends "portalbase.html" %}
+
+{% comment %}
+    This is the main template for all portal pages after user logged in.
+
+{% endcomment %}
+
+{% block head %}
+    <title>Dataium Data Science | {% block title %} {% endblock %} </title>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Dataium Data Science | Web Portal</h1>
+    </header>
+
+    <section>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/logout/">logout</a></li>
+        </ul>
+    </section>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <span>&copy; 2014, Dataium LLC</span>
+</footer>
+{% endblock %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+
+    </body>
+</html>

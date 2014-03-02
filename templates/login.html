@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Application Name - Admin Login</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+ 
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+    <!-- Custom Style for This Sheet -->
+    <link rel="stylesheet" href="/static/css/signin.css" />
+</head>
+ 
+<body>
+<!-- Navigation Bar -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://en.wikipedia.org/wiki/Rodan_(film)">Project Rodan</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url "index" %}">Home</a>
+                </li>
+                <li>
+                    <a href="#">Forgot Password</a>
+                </li>
+                <li>
+                    <a href="{% url "register" %}">Register Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Navigation Ends -->
+
+
+ 
+<!-- Main Container -->
+<section>
+<div class="container">
+
+    <form class = "form-signin" role="form" id="login" method='post' action='{% url "login" %}' enctype="multipart/form-data">
+        <h2 class="form-signin-heading">Please sign in</h2>
+         {% csrf_token %}
+        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <label class = "checkbox">
+            <input type="checkbox" value="remember-me">
+            Remember me, please
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign in</button>
+    </form>
+
+</div>
+<p class="text-center muted ">&copy; Copyright 2013 - Project Rodan</p>
+</section>
+<!-- Main Container Ends -->
+ 
+
+ 
+<!-- JavaScript -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+</body>
+</html>
